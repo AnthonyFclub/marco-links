@@ -76,7 +76,8 @@
     /* ── NAVBAR ── */
     #top-bar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 80px;
+      height: 70px;
+      overflow: visible;
       display: grid; grid-template-columns: 1fr auto 1fr;
       align-items: center;
       padding: 0 3.5rem;
@@ -219,10 +220,11 @@
     #about {
       position: relative; z-index: 2;
       display: grid; grid-template-columns: 1fr 1fr;
-      min-height: 75vh;
+      height: 100vh;
+      overflow: hidden;
       background: transparent;
     }
-    @media (max-width: 768px) { #about { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { #about { grid-template-columns: 1fr; height: auto; } }
 
     /* Left: full-bleed B&W photo */
     .about-photo-side {
@@ -234,7 +236,8 @@
       width: 100%; height: 100%;
       object-fit: cover; object-position: center top;
       display: block;
-      filter: grayscale(1) contrast(1.08);
+      filter: grayscale(100%) sepia(30%) brightness(0.85) contrast(1.1);
+      transform: scale(1.2); transform-origin: center top;
     }
     /* Placeholder shown when no photo is present */
     .about-photo-side::after {
@@ -481,7 +484,9 @@
     <li><a href="#about">Acerca</a></li>
     <li><a href="#what-i-do">Servicios</a></li>
   </ul>
-  <a href="#hero" class="bar-logo">Anthony&thinsp;Morales</a>
+  <a href="#hero" class="bar-logo">
+    <img src="assets/logo-valarnaut.png" alt="Anthony Valarnaut" style="height: 200px; width: auto; object-fit: contain; position: absolute; left: 50%; transform: translateX(-50%); top: -50px; z-index: 10;">
+  </a>
   <ul class="bar-nav bar-nav-right">
     <li><a href="#projects">Links</a></li>
     <li><a href="https://www.linkedin.com/in/marco-antonio-l%C3%B3pez-morales-19aa872b1/" target="_blank" rel="noopener noreferrer">Conectar</a></li>
@@ -543,7 +548,7 @@
 <section id="about" aria-label="Acerca de Anthony Morales">
 
   <div class="about-photo-side">
-    <img src="assets/about-photo.jpg" class="about-photo" alt="Anthony Morales">
+    <img src="assets/profile-anthony.jpg" class="about-photo" alt="Anthony Morales">
   </div>
 
   <div class="about-text-side">
